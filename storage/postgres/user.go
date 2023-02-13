@@ -11,6 +11,7 @@ type userRepo struct {
 	db *sqlx.DB
 }
 
+//NewUserRepo create connection to postgres
 func NewUserRepo(db *sqlx.DB) *userRepo {
 	return &userRepo{db: db}
 }

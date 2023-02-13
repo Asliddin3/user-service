@@ -9,21 +9,13 @@ proto-gen:
 server:
 	go run cmd/main.go
 
-pull_submodule:
-	git submodule update --init --recursive
-
-update_submodule:
-	git submodule update --remote --merge
-
 create:
 	migrate create -ext sql -dir migrations -seq create_user_table
 
 up-version:
-	migrate -source file:./migrations/ -database 'postgres://postgres:compos1995@localhost:5432/userdb?sslmode=disable' up
+	migrate -source file:./migrations/ -database 'postgres://username:password@localhost:5432/userdb?sslmode=disable' up
 
 down-version:
-	migrate -source file:./migrations/ -database 'postgres://postgres:compos1995@localhost:5432/userdb?sslmode=disable' down
+	migrate -source file:./migrations/ -database 'postgres://username:password@localhost:5432/userdb?sslmode=disable' down
 
-# run:
-# 	go run cmd/main.go
 
